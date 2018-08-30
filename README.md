@@ -3,8 +3,9 @@ Cyberpunk 2077 characters stream decoder
 
 Problem
 -----
-
 Grab characters from a 9 hours long video.
+Characters is some base64 encoded data.
+They say it's a 1920*1080 PNG image.
 - Stream + Demo: https://www.twitch.tv/videos/302423092
 - Demo only: https://www.youtube.com/watch?v=vjF9GgrY9c0
 - Game website: https://www.cyberpunk.net
