@@ -16,6 +16,7 @@ Approach
 - [X] take screenshot from video every 15 seconds
       `ffmpeg -i video.mp4 -vf fps=1/15 ./screenshots/%06d.png`
 - [x] slice screenshot on images of separate characters
+- [x] compute difference between 2 characters
 - [ ] build characters images dictionary
 - [ ] convert screenshots to text
 - [ ] combine text from screenshots into one stream

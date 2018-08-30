@@ -19,6 +19,21 @@ function getBufferString (buf) {
   return result.join('\n')
 }
 
+/**
+ * Compute a total color difference between 2 images
+ * @param {Buffer} imageA
+ * @param {Buffer} imageB
+ * @return {number}
+ */
+function getDifference (imageA, imageB) {
+  let diff = 0
+  for (let i = 0; i < imageA.length; i++) {
+    diff += Math.abs(imageA[i] - imageB[i])
+  }
+  return diff
+}
+
 module.exports = exports = {
   getBufferString,
+  getDifference,
 }
