@@ -16,6 +16,18 @@ function getCharacterRectangle (x, y) {
 }
 
 /**
+ * @param {Buffer} image
+ * @return {Buffer}
+ */
+function mapImageToThreeColors (image) {
+  return image.map(pixel => {
+    if (pixel > 170) {return 255}
+    if (pixel > 85) {return 127}
+    return 0
+  })
+}
+
+/**
  * Returns a 2-dimensional array of buffers
  * Every buffer is a greyscale (0-255) representation of the image cell
  * @param {string} path - path to the image
@@ -33,6 +45,7 @@ function getGrid (path) {
       const promise = image.clone()
         .extract(getCharacterRectangle(x, y))
         .toBuffer()
+        .then(mapImageToThreeColors)
       row.push(promise)
     }
     grid.push(Promise.all(row))

@@ -1,4 +1,15 @@
 const {CHARACTER_SIZE} = require('./constants')
+const COMPARISON_SEQUENCE = (() => {
+  const characterBufferLength = CHARACTER_SIZE.width * CHARACTER_SIZE.height
+
+  let sequence = []
+  for (let index = 0; index < characterBufferLength; index++) {
+    sequence.push([Math.random(), index])
+  }
+
+  return sequence.sort((a, b) => a[0] - b[0])
+    .map(([weight, index]) => index)
+})()
 
 /**
  * Returns a console-printable string representation of a greyscale image
@@ -7,7 +18,11 @@ const {CHARACTER_SIZE} = require('./constants')
  */
 function getBufferString (buf) {
   const arr = Array.from(buf)
-    .map(pixel => pixel > 127 ? 'x' : ' ')
+    .map(pixel => {
+      if (pixel > 127) {return 'X'}
+      if (pixel > 0) { return '+'}
+      return 0
+    })
 
   let result = []
   for (let i = 0; i < CHARACTER_SIZE.height; i++) {
@@ -33,7 +48,20 @@ function getDifference (imageA, imageB) {
   return diff
 }
 
+function areSimilar (imageA, imageB, threshold) {
+  let diff = 0
+  for (let i = 0; i < COMPARISON_SEQUENCE.length; i++) {
+    const index = COMPARISON_SEQUENCE[i]
+    diff += Math.abs(imageA[index] - imageB[index])
+    if (diff >= threshold) {
+      return false
+    }
+  }
+  return true
+}
+
 module.exports = exports = {
   getBufferString,
   getDifference,
+  areSimilar,
 }
