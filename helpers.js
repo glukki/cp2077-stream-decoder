@@ -21,7 +21,7 @@ function getBufferString (buf) {
     .map(pixel => {
       if (pixel > 127) {return 'X'}
       if (pixel > 0) { return '+'}
-      return 0
+      return ' '
     })
 
   let result = []
