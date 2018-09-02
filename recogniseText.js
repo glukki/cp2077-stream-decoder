@@ -2,6 +2,7 @@ const fs = require('fs')
 const {promisify} = require('util')
 const {basename} = require('path')
 const sharp = require('sharp')
+const {TEXTS_PATH} = require('./constants')
 const {getDifference} = require('./helpers')
 const {getGrid} = require('./grid')
 
@@ -84,11 +85,12 @@ async function recogniseScreenshot (dict, path) {
   return text
 }
 
-async function recogniseDir (path, outputDir) {
+async function recogniseDir (path) {
   const fsReaddir = promisify(fs.readdir)
   const fsWriteFile = promisify(fs.writeFile)
   const fsMkdir = promisify(fs.mkdir)
 
+  const outputDir = TEXTS_PATH
   const imageExtension = '.png'
   const textExtension = '.txt'
 
@@ -108,4 +110,4 @@ async function recogniseDir (path, outputDir) {
   }
 }
 
-recogniseDir(process.argv[2], process.argv[3])
+recogniseDir(process.argv[2])

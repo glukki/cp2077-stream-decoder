@@ -20,6 +20,7 @@ const CHARACTER_SIZE = {
 }
 const DICTIONARY_SIZE = 64
 const DICTIONARY_PATH = './dict/'
+const TEXTS_PATH = './texts/'
 
 module.exports = exports = {
   IMAGE_DIMENSIONS,
@@ -29,4 +30,5 @@ module.exports = exports = {
   CHARACTER_SIZE,
   DICTIONARY_SIZE,
   DICTIONARY_PATH,
+  TEXTS_PATH,
 }

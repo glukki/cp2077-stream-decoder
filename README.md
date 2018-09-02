@@ -21,5 +21,5 @@ Approach
 - [x] build characters images dictionary
       `node buildDictionary.js ./screenshots/000020.png ./screenshots/000931.png ./screenshots/001234.png ./screenshots/001783.png ./screenshots/002060.png`
 - [x] convert screenshots to text
-      `node node recogniseText.js ./screenshots/ ./texts/`
+      `node recogniseText.js ./screenshots/`
 - [ ] combine text from screenshots into one stream
