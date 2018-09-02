@@ -23,3 +23,4 @@ Approach
 - [x] convert screenshots to text
       `node recogniseText.js ./screenshots/`
 - [ ] combine text from screenshots into one stream
+      `node index.js`
