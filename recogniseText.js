@@ -98,7 +98,6 @@ async function recogniseDir (path, outputDir) {
   const dict = await getDictionary('./dict')
   const files = (await fsReaddir(path))
     .filter(name => name.endsWith(imageExtension))
-    .slice(0, 10)
 
   for (let i = 0; i < files.length; i++) {
     const fileName = files[i]
