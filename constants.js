@@ -1,3 +1,7 @@
+const IMAGE_DIMENSIONS = {
+  width: 1920,
+  height: 1080,
+}
 const GRID_POSITION = {
   top: 1,
   left: 271,
@@ -18,6 +22,7 @@ const DICTIONARY_SIZE = 64
 const DICTIONARY_PATH = './dict/'
 
 module.exports = exports = {
+  IMAGE_DIMENSIONS,
   GRID_POSITION,
   GRID_DIMENSIONS,
   GRID_SPACING,

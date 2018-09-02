@@ -152,8 +152,9 @@ function saveBufferAsPng (buffer, filename) {
  * @param {string[]} paths
  * @return {Promise<object[]>}
  */
-function buildDictionaryFiles (paths) {
-  return Promise.all(paths.map(path => getGrid(path)))
+async function buildDictionaryFiles (paths) {
+  return Promise.resolve()
+    .then(() => paths.map(async path => (await getGrid(path))))
     .then(grids => {
       const groups = grids.map(grid => reduceGroupsToDictSize(makeGroupsFromGrid(grid)))
         .reduce((arr, groups) => arr.concat(groups), [])
